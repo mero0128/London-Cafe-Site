@@ -148,6 +148,24 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
     font-size:.85rem; letter-spacing:.6px; transition:border-color .2s, background .2s;
   }
   .btn-ghost:hover{border-color:var(--gold-light); background:rgba(179,146,90,0.08);}
+  .cta-dropdown{position:relative; display:inline-block;}
+  .cta-dropdown-menu{
+    position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-8px);
+    background:var(--navy-2); border:1px solid var(--line); border-radius:4px;
+    min-width:200px; padding:8px; opacity:0; visibility:hidden;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+    z-index:20;
+  }
+  .cta-dropdown.open .cta-dropdown-menu{
+    opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+  }
+  .cta-dropdown-menu a{
+    display:flex; align-items:center; gap:10px;
+    padding:11px 14px; font-size:.85rem; border-radius:3px;
+    transition:background .2s ease;
+  }
+  .cta-dropdown-menu a:hover{background:rgba(179,146,90,0.12); color:var(--gold-light);}
+  .cta-dropdown-menu svg{flex-shrink:0; opacity:.8;}
 
   /* plane divider - signature element */
   .plane-divider{
@@ -705,8 +723,19 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
     <h2 data-i18n="cta_h2">Let's cater to your imagination.</h2>
     <div class="cta-row">
       <a href="tel:+251997211870" class="btn-primary" data-i18n="cta_call">Call Now</a>
-<a href="sms:+251933937383?body=Hi%2C%20I%27d%20like%20a%20catering%20quote%20from%20London%20Cafe" class="btn-ghost">Get a Catering Quote</a>    </div>
+<div class="cta-dropdown" id="ctaDropdown">
+  <a href="#" class="btn-ghost" id="ctaDropdownTrigger" data-i18n="cta_quote">Get a Catering Quote</a>
+  <div class="cta-dropdown-menu">
+    <a href="sms:+251933937383?body=Hi%2C%20I%27d%20like%20a%20catering%20quote%20from%20London%20Cafe">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Text Us
+    </a>
+    <a href="https://instagram.com/londoncafeandcatering" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      Message on Instagram
+    </a>
   </div>
+</div>  </div>
 </section>
 
 <footer>
@@ -1055,6 +1084,16 @@ applyLanguage('am');
     });
   }, { threshold: 0.2 });
   serviceCards.forEach(card => serviceIO.observe(card));
+  // catering quote dropdown
+  const ctaDropdown = document.getElementById('ctaDropdown');
+  const ctaTrigger = document.getElementById('ctaDropdownTrigger');
+  ctaTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    ctaDropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', (e) => {
+    if (!ctaDropdown.contains(e.target)) ctaDropdown.classList.remove('open');
+  });
 </script>
 </body>
 </html>

@@ -212,6 +212,13 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
   .service-card{
     background:var(--navy); padding:0 0 34px; transition:background .3s;
   }
+  .service-card{
+    opacity:0; transform:translateY(30px);
+    transition:opacity .6s ease, transform .6s ease, box-shadow .3s ease;
+  }
+  .service-card.plated{opacity:1; transform:translateY(0);}
+  .services-grid > .service-card:nth-child(2).plated{transition-delay:.12s;}
+  .services-grid > .service-card:nth-child(3).plated{transition-delay:.24s;}
   .service-card:hover{background:var(--navy-2);}
   .service-photo{width:100%; height:180px; object-fit:cover; display:block; filter:saturate(.9);}
   .service-body{padding:28px 34px 0;}
@@ -238,6 +245,15 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
     .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:150px;}
     .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8{grid-column:span 1; grid-row:span 1;}
   }
+  .gallery-grid a{
+    opacity:0; transform:translateY(40px) scale(0.92) rotate(-2deg);
+    transition:opacity .7s cubic-bezier(0.16,1,0.3,1), transform .7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .gallery-grid a.landed{
+    opacity:1; transform:translateY(0) scale(1) rotate(0deg);
+  }
+  .gallery-grid a:nth-child(3n+2).landed{transition-delay:.08s;}
+  .gallery-grid a:nth-child(3n+3).landed{transition-delay:.16s;}
 
   /* ---------- SOCIAL PROOF ---------- */
   .trust-badge{
@@ -919,7 +935,7 @@ document.addEventListener('keydown', (e) => {
       services_h2: "አንድ ወጥ ቤት፣ ሶስት የተሞክሮ መንገዶች።",
       services_p: "ለቡና ቢመጡም ሆነ ሰርግ እያቀዱ ቢሆን፣ ሁሉም በተመሳሳይ ጥራት ይቀርባል ።",
       service1_h3: "የዕለት ተዕለት ምግብ",
-      service1_p: "ትኩስ ዳቦ፣ የኢትዮጵያ ባህላዊ ምግቦች፣ ዓለም አቀፍ ምግቦች፣ ልዩ ቡና፣ ትኩስ ጭማቂዎች እና የቡፌ አገልግሎት — በሁሉም ቅርንጫፎቻችን።",
+      service1_p: "ትኩስ ዳቦ፣ የኢትዮጵያ ባህላዊ ምግቦች፣ ዓለም አቀፍ ምግቦች፣ ልዩ ቡና፣ ጭማቂዎች እና የቡፌ አገልግሎት — በሁሉም ቅርንጫፎቻችን።",
       service2_h3: "ለዝግጅቶችዎ",
       service2_p: "ለቢዝነስ ስብሰባዎች፣ ኮንፈረንሶች፣ የመንግስት ዝግጅቶች፣ ወርክሾፖች፣ ሰርጎች፣ ድግሶች እና ልዩ ዝግጅቶች የተሟላ የምግብና መጠጥ አገልግሎት።",
       service3_h3: "ዕለታዊ አቅርቦት",
@@ -1018,6 +1034,28 @@ applyLanguage('am');
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
   document.getElementById('mobileMenuClose').addEventListener('click', closeMobileMenu);
   
+  // gallery images "fly in and land" on scroll
+  const galleryPhotos = document.querySelectorAll('.gallery-grid a');
+  const galleryIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('landed');
+        galleryIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  galleryPhotos.forEach(photo => galleryIO.observe(photo));
+  // service cards "plate up" on scroll
+  const serviceCards = document.querySelectorAll('.service-card');
+  const serviceIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('plated');
+        serviceIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  serviceCards.forEach(card => serviceIO.observe(card));
 </script>
 </body>
 </html>

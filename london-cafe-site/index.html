@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>London Cafe, Satellite Restaurant & Catering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Noto+Sans+Ethiopic:wght@400;600&family=Noto+Serif+Ethiopic:wght@500;600;700&display=swap" rel="stylesheet"><style>
   :root{
     --navy:#0d1a26;
     --navy-2:#132538;
@@ -107,24 +106,25 @@
   cursor:pointer; transition:border-color .2s, color .2s;
 }
 .lang-toggle:hover{border-color:var(--gold-light); color:var(--gold-light);}
-[lang="am"] body, body.lang-am{font-family:'Noto Sans Ethiopic', 'Inter', sans-serif; font-size:1.18rem;}
+[lang="am"] body, body.lang-am{font-family:'Noto Serif Ethiopic', 'Inter', serif; font-size:1.18rem;}
 body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, body.lang-am .footer-tagline{
-  font-family:'Noto Sans Ethiopic', 'Playfair Display', serif;
+  font-family:'Noto Serif Ethiopic', 'Playfair Display', serif;
+  font-weight:600;
 }
-body.lang-am .hero-sub{font-size:1.28rem; line-height:1.95;}
-body.lang-am .service-card p{font-size:1.12rem; line-height:1.95;}
-body.lang-am .review-text{font-size:1.12rem; line-height:1.9;}
-body.lang-am .branch-row{font-size:1.05rem; line-height:1.85;}
+body.lang-am .hero-sub{font-family:'Noto Serif Ethiopic', serif; font-size:1.28rem; line-height:1.95;}
+body.lang-am .service-card p{font-family:'Noto Serif Ethiopic', serif; font-size:1.12rem; line-height:1.95;}
+body.lang-am .review-text{font-family:'Noto Serif Ethiopic', serif; font-size:1.12rem; line-height:1.9;}
+body.lang-am .branch-row{font-family:'Noto Serif Ethiopic', serif; font-size:1.05rem; line-height:1.85;}
 body.lang-am .value-quote{line-height:1.95; font-size:1.35em;}
 
-body.lang-am .eyebrow{font-size:.95rem; letter-spacing:2px;}
-body.lang-am .section-head p{font-size:1.12rem; line-height:1.9;}
-body.lang-am .stat span{font-size:1rem;}
-body.lang-am .trust-text p{font-size:1.15rem; line-height:1.85;}
-body.lang-am .trust-note{font-size:.9rem;}
-body.lang-am .footer-col p, body.lang-am .footer-col a{font-size:1.08rem;}
-body.lang-am .service-num{font-size:.92rem;}
-body.lang-am .review-source{font-size:.88rem;}
+body.lang-am .eyebrow{font-family:'Noto Serif Ethiopic', serif; font-size:.95rem; letter-spacing:2px;}
+body.lang-am .section-head p{font-family:'Noto Serif Ethiopic', serif; font-size:1.12rem; line-height:1.9;}
+body.lang-am .stat span{font-family:'Noto Serif Ethiopic', serif; font-size:1rem;}
+body.lang-am .trust-text p{font-family:'Noto Serif Ethiopic', serif; font-size:1.15rem; line-height:1.85;}
+body.lang-am .trust-note{font-family:'Noto Serif Ethiopic', serif; font-size:.9rem;}
+body.lang-am .footer-col p, body.lang-am .footer-col a{font-family:'Noto Serif Ethiopic', serif; font-size:1.08rem;}
+body.lang-am .service-num{font-family:'Noto Serif Ethiopic', serif; font-size:.92rem;}
+body.lang-am .review-source{font-family:'Noto Serif Ethiopic', serif; font-size:.88rem;}
   /* ---------- HERO ---------- */
   .hero{
     position:relative; min-height:100vh; display:flex; align-items:flex-end;
@@ -1020,7 +1020,7 @@ document.addEventListener('keydown', (e) => {
     },
     am: {
       hero_eyebrow: "ካፌ · ሬስቶራንት · ኬተሪንግ",
-      hero_h1: "ምናብዎን እናረካለን",
+      hero_h1: "አምሮቶን እውን እናደርጋለን",
       hero_sub: "<b>ለንደን</b>፣ ካፌ ሳተላይት ሬስቶራንት እና ኬተሪንግ — ከ1990 ጀምሮ በአዲስ አበባ እያገለገለ፣ ከጠዋት ቡናዎ እስከ ልዩ ዝግጅቶችዎ።",
       hero_cta1: "አገልግሎቶቻችን",
       hero_cta2: "ኬተሪንግ ይዘዙ",
@@ -1044,7 +1044,7 @@ document.addEventListener('keydown', (e) => {
       branches_eyebrow: "መገኛችን",
       branches_h2: "በአዲስ አበባ ውስጥ ስድስት ቅርንጫፎች።",
       cta_eyebrow: "የሆነ ነገር እያቀዱ ነው?",
-      cta_h2: "ምናብዎን እናረካለን።",
+      cta_h2: "አምሮቶን እውን እናደርጋለን።",
       cta_call: "አሁን ይደውሉ",
       cta_quote: "ስለ ኬተሪንግ ይጠይቁ",
       footer_tagline: "\"ከምታስታውሷቸው ልዩ የመመገቢያ ጊዜያት እስከ ልዩ ዝግጅቶችዎ ኬተሪንግ ድረስ።\"",

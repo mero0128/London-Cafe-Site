@@ -178,7 +178,7 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
   .plane-icon{
   position:absolute; top:50%; left:-60px; width:34px; height:34px;
   transform:translateY(-50%);
-  animation: fly 6s ease-in-out .3s 1 forwards;
+  animation: fly 9s ease-in-out .3s 1 forwards;
   opacity:0;
 }
   @keyframes fly{
@@ -311,13 +311,36 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
   .branches{background:var(--navy-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .branch-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
   .branch-card{
-    position:relative; overflow:hidden;
-    background:linear-gradient(155deg, var(--gold-light) 0%, var(--gold) 100%);
-    border-radius:10px;
-    padding:30px 32px 26px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.22);
-    transition:transform .35s ease, box-shadow .35s ease;
-  }
+  position:relative; overflow:hidden;
+  background:linear-gradient(155deg, var(--gold-light) 0%, var(--gold) 100%);
+  border-radius:10px;
+  padding:0;
+  box-shadow:0 8px 24px rgba(0,0,0,0.22);
+  transition:transform .35s ease, box-shadow .35s ease;
+  display:flex;
+  min-height:200px;
+}
+.branch-photo{
+  width:150px; flex-shrink:0;
+  object-fit:cover;
+}
+.branch-photo-link{display:block; overflow:hidden; cursor:zoom-in; align-self:stretch;}
+.branch-photo-link:hover .branch-photo{transform:scale(1.05);}
+.branch-photo{
+  width:150px; height:100%; flex-shrink:0;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+}
+.branch-content{
+  padding:26px 26px 22px;
+  flex:1;
+  min-width:0;
+}
+@media(max-width:480px){
+  .branch-card{flex-direction:column; min-height:auto;}
+  .branch-photo{width:100%; height:130px;}
+}
   .branch-card::before{
     content:''; position:absolute; top:0; left:0; width:0; height:3px;
     background:var(--navy); transition:width .4s ease;
@@ -472,9 +495,9 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
 </section>
 
 <div class="plane-divider">
-  <svg class="plane-icon" id="planeIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 55 L85 55 L70 40 M85 55 L70 70 M45 55 L35 30 L42 30 L55 55 M45 55 L35 80 L42 80 L55 55" stroke="#b3925a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+<svg class="plane-icon" id="planeIcon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#b3925a" d="M480 192H365.71L260.61 8.06A16.014 16.014 0 0 0 246.71 0h-65.5c-10.63 0-18.3 10.17-15.38 20.39L214.86 192H112l-43.2-57.6c-3.02-4.03-7.77-6.4-12.8-6.4H16.01C5.6 128-2.04 137.78.49 147.86L32 256 .49 364.14C-2.04 374.22 5.6 384 16.01 384H56c5.03 0 9.78-2.37 12.8-6.4L112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c6.14 0 11.86-3.08 15.24-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z"/>
+</svg> 
 </div>
 
 <section class="value">
@@ -667,51 +690,71 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
     </div>
    <div class="branch-grid reveal">
       <div class="branch-card">
+   <a href="#" class="branch-photo-link" data-full="images/alemcinema.jpg">
+  <img class="branch-photo" src="images/alemcinema.jpg" alt="Bole Airport Road branch">
+</a>          <div class="branch-content">
         <span class="branch-name" data-i18n="branch1_name">Bole Airport Road |Alem Cinema|</span>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span span data-i18n="branch1_address"> Bole Road Opposite Alem Cinema, Addis Ababa</span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+251997211870">+251 99 721 1870</a></span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="hours_24">Open 24 hours daily</span></div>
         <a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=Bole+Road+opposite+Alem+Cinema+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps" >Open in Maps</a>
       </div>
+      </div>
 
-      <div class="branch-card">
+         <div class="branch-card">
+  <a href="#" class="branch-photo-link" data-full="images/terminal.jpg">
+  <img class="branch-photo" src="images/terminal.jpg" alt="Bole Airport Terminal (Passengers Only)">
+</a>          <div class="branch-content">
         <span class="branch-name" data-i18n="branch2_name">Bole Airport Terminal (Passengers Only)</span>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="branch2_address">Bole International Airport, inside the terminal security area, Addis Ababa</span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+251933937383">+251 93 393 7383</a></span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="hours_terminal">Open 24 hours · Accessible to ticketed passengers only</span></div>
         <a class="branch-directions" data-i18n="btn_terminal" href="https://www.google.com/maps/search/?api=1&query=Bole+International+Airport+Addis+Ababa" target="_blank" rel="noopener">View Terminal Location</a>
       </div>
-
+</div>
       <div class="branch-card">
+<a href="#" class="branch-photo-link" data-full="images/alemnesh plaza.jpg">
+  <img class="branch-photo" src="images/alemnesh plaza.jpg" alt="Alemnesh Plaza, Bole Medhanialem">
+</a>          <div class="branch-content">
         <span class="branch-name" data-i18n="branch3_name" >Alemnesh Plaza, Bole Medhanialem</span>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="branch3_address">Alemnesh Plaza, Addis Ababa</span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+251902415245">+251 90 241 5245</a></span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="hours_am_pm_1">Daily, 7:00 AM – 10:00 PM</span></div>
-        <a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=Alemnesh+Plaza+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps" >Open in Maps</a>
-      </div>
-
+<a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=London+Cafe+Bole+Medhanialem+Cameroon+St+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps">Open in Maps</a>      </div>
+</div>
       <div class="branch-card">
+<a href="#" class="branch-photo-link" data-full="images/morning.jpg">
+  <img class="branch-photo" src="images/morning.jpg" alt="Morning Star Mall">
+</a> 
+<div class="branch-content">
         <span class="branch-name" data-i18n="branch4_name">Morning Star Mall</span>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="branch4_address">Near Edna Mall, Addis Ababa</span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+251970037703">+251 97 003 7703</a></span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span  data-i18n="hours_am_pm_2">Daily, 8:00 AM – 9:00 PM</span></div>
-        <a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=Morning+Star+Mall+Near+Edna+Mall+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps".>Open in Maps</a>
-      </div>
-
+<a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=XQWP%2BGFV+London+Cafe+Morning+Star+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps">Open in Maps</a>
+</div>
+</div>
       <div class="branch-card">
+<a href="#" class="branch-photo-link" data-full="images/bisategebrel.jpg">
+  <img class="branch-photo" src="images/bisategebrel.jpg" alt="Bisrate Gebreal(Sarbet)">
+</a>          <div class="branch-content">
         <span class="branch-name" data-i18n="branch5_name">Bisrate Gebreal(Sarbet)</span>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="branch5_address">South Africa Street, Addis Ababa</span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+251969571106">+251 96 957 1106</a></span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="hours_am_pm_3">Mon–Sat 8:00 AM–9:00 PM · Sun 9:00 AM–8:00 PM</span></div>
-        <a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=South+Africa+Street+Bisrate+Gebreal+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps" >Open in Maps</a>
-      </div>
-
+<a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=XPWH%2B6H6+London+Cafe+Bisrate+Gebreal+S+Africa+St+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps">Open in Maps</a></div>
+</div>
       <div class="branch-card">
+<a href="#" class="branch-photo-link" data-full="images/bole hibret.jpg">
+  <img class="branch-photo" src="images/bole hibret.jpg" alt="Bole Hibret">
+</a>
+       <div class="branch-content">
         <span class="branch-name" data-i18n="branch6_name">Bole Hibret</span>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="branch6_address">Around Hibret Bank Building</span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+251902416345">+251 90 241 6345</a></span></div>
         <div class="branch-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="hours_am_pm_1">Daily, 7:00 AM – 10:00 PM</span></div>
         <a class="branch-directions" href="https://www.google.com/maps/search/?api=1&query=Hibret+Bank+Building+Addis+Ababa" target="_blank" rel="noopener" data-i18n="btn_maps" >Open in Maps</a>
+      </div>
       </div>
     </div>
   </div>
@@ -815,18 +858,18 @@ body.lang-am h1, body.lang-am h2, body.lang-am h3, body.lang-am .value-quote, bo
 
   // trigger plane animation once divider is in view
   const plane = document.getElementById('planeIcon');
-  const planeWrap = document.querySelector('.plane-divider');
-  const planeIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        plane.style.animationPlayState = 'running';
-        planeIO.unobserve(planeWrap);
-      }
-    });
-  }, { threshold: 0.4 });
-  planeIO.observe(planeWrap);
-  const galleryLinks = Array.from(document.querySelectorAll('#galleryGrid a'));
-const lightbox = document.getElementById('lightbox');
+const planeWrap = document.querySelector('.plane-divider');
+const planeIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      plane.style.animation = 'none';
+      void plane.offsetWidth;
+      plane.style.animation = 'fly 6s ease-in-out forwards';
+    }
+  });
+}, { threshold: 0.4 });
+planeIO.observe(planeWrap);
+const galleryLinks = Array.from(document.querySelectorAll('#galleryGrid a, .branch-photo-link'));const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 let currentIndex = 0;
 

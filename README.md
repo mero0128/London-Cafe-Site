@@ -36,8 +36,8 @@ london-cafe-site/
 No build step required — it's a static site.
 
 ```bash
-git clone <https://github.com/mero0128/london-cafe-site.git >
-cd london-cafe-site
+git clone <https://github.com/mero0128/dreams-chicken-shawarma.git>
+cd dreams-chicken-shawarma
 # then just open index.html in a browser,
 # or serve it locally, e.g.:
 npx serve .
